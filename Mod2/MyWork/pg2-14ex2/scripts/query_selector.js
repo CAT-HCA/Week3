@@ -7,9 +7,9 @@ window.onload = function()
 
     displayBtn.onclick = function()
     {
-        let str = "";
         for (let i = 0; i < inputFields.length; i++)
         {
+            let str = "";
             str = str + inputFields[i].value + "\n";
             alert(str);
         }

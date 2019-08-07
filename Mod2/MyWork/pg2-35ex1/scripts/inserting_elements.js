@@ -56,16 +56,3 @@ window.onload = function ()
     }
 }
 
-
-
-/*
-* This function will determine if your selected number of guests is greater
-* than the max occupancy of selected room type
-* @param roomType (string) - roomType selected by user on drop down
-* @param numGuests (number) - number of guests
-* @return result (boolean) - true or false that the guests will fit in the room
-*/
-function canRoomHoldCustomer(roomInfo, numGuests)
-{
-
-}

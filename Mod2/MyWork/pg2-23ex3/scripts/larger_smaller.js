@@ -16,8 +16,6 @@ window.onload = function ()
         let percentChange = .8;
         changeParaSize(percentChange);
     }
-
-
 }
 
 function changeParaSize (percentChange)

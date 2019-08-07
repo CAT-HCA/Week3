@@ -10,6 +10,7 @@ window.onload = function ()
     {
         allImgs[i].src = imageFiles[i];
         allImgs[i].alt = imageDescriptions[i];
+        allImgs[i].className = "roundedImg";
     }
 }
 

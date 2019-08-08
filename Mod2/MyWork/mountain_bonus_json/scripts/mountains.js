@@ -56,7 +56,7 @@ window.onload = function() {
 		let cell1_4 = row4.insertCell(0);
 		cell1_4.innerHTML = "Photo";
 		let imgSrc = document.createElement("img");
-		imgSrc.src = mtnImg;
+		imgSrc.src = "img/" + mtnImg;
 		let cell2_4 = row4.insertCell(1);
 		cell2_4.appendChild(imgSrc);
 

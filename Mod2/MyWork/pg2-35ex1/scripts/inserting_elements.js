@@ -9,7 +9,7 @@
 */
 window.onload = function ()
 {
-    
+
     let allImages = 
         [
             {file: "images/cat1.jpg", description: "Sleepy kitty"},

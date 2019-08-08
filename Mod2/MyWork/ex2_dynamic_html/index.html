@@ -27,14 +27,31 @@
     <!--END NAV BAR-->
 
     <main class="container mt-3">
+        <form class="container">
+            <div class="form-group">
+                <label for="tourSelect">Select a tour category to view available options:</label>
+                <select class="form-control" id="tourSelect" name="tourSelect">
+                    <option value="Museum Tours">Museum Tours</option>
+                    <option value="Food Tours">Food Tours</option>
+                    <option value="Adventure Tours">Adventure Tours</option>
+                    <option value="Domestic Animals">Domestic Animals</option>
+                </select>
+            </div>
+            <div>
+                <input class="btn btn-info my-3" type="button" id="showBtn" name="showBtn" value="Show Tours">
+                <input class="btn btn-info my-3" type="reset" id="resetBtn" name="resetBtn" value="Reset">
+            </div>
+        </form>
         <table id="tours" class="table border">
             <thead class="thead-dark">
-            <tr>
-                <th >Category</th>
-                <th>Title</th>
-                <th>Price</th>
-            </tr>
+                <tr>
+                    <th>Category</th>
+                    <th>Title</th>
+                    <th>Price</th>
+                </tr>
             </thead>
+            <tbody id ="tableBody">
+            </tbody>
         </table>
     </main>
     <!-- FOOTER -->

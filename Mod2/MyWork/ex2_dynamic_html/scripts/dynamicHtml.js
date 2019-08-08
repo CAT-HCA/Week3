@@ -16,18 +16,42 @@ window.onload = function ()
         {category: "Adventure Tours", title: "National Zoo: How to Grab a Skunk by the Neck", price: 80.00},
         {category: "Domestic Animals", title: "Doggos Barking Tour", price: 29.00}
     ];
-
+    let showBtn = document.getElementById("showBtn");
+    let resetBtn = document.getElementById("resetBtn");
+    let tourSelect = document.getElementById("tourSelect");
+    let tableBody = document.getElementById("tableBody");
     let table = document.getElementById("tours");
     let len = tours.length;
-    for(let i = 0; i < len; i++)
+
+    showBtn.onclick = function ()
     {
-        let row = table.insertRow(table.rows.length);
-        let cell1 = row.insertCell(0);
-        cell1.innerHTML = tours[i].category;
-        let cell2 = row.insertCell(1);
-        cell2.innerHTML = tours[i].title;
-        let cell3 = row.insertCell(2);
-        cell3.innerHTML = "$" + tours[i].price + ".00"
+        while (tableBody.childNodes.length) 
+        {
+            tableBody.removeChild(tableBody.childNodes[0]);
+        }  
+  
+        for(let i = 0; i < len; i++) 
+        {
+            if(tourSelect.value == tours[i].category)
+            {
+            let row = tableBody.insertRow(tableBody.rows.length);
+            let cell1 = row.insertCell(0);
+            cell1.innerHTML = tours[i].category;
+            let cell2 = row.insertCell(1);
+            cell2.innerHTML = tours[i].title;
+            let cell3 = row.insertCell(2);
+            cell3.innerHTML = "$" + tours[i].price + ".00";
+            }
+        }
     }
 
+    /* if you wanted to use a reset button
+    resetBtn.onclick = function ()
+        {
+        while (tableBody.childNodes.length) 
+        {
+            tableBody.removeChild(tableBody.childNodes[0]);
+        }    
+    }
+    */
 }

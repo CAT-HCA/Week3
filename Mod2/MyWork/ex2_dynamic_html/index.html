@@ -28,7 +28,29 @@
 
     <main class="container mt-3">
         <form class="container">
-            <div class="form-group">
+                <fieldset class="border border-info p-3 rounded col-4">
+                        <legend class="font-weight-light text-white w-50 rounded">Filter Results
+                        </legend>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="sortOptions" id="sortByCat" value="sortByCat" checked>
+                            <label class="form-check-label" for="sortByCat">Filter by Category</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="sortOptions" id="sortByPrice" value="sortByPrice" >
+                            <label class="form-check-label" for="sortByPrice">Filter by Price</label>
+                        </div>
+                    </fieldset>
+            <div id="priceSortDiv" class="container">
+                <div class="form-group">
+                    <label for="inputMinPrice">Minimum Price: </label>
+                    <input type="number" min="0" class="form-control col-4" id="inputMinPrice" name="inputMinPrice">
+                </div>
+                <div class="form-group">
+                    <label for="inputMaxPrice">Maximum Price: </label>
+                    <input type="number" min="0" class="form-control col-4" id="inputMaxPrice" name="inputMaxPrice">
+                </div>
+            </div>
+            <div id="catSortDiv" class="form-group">
                 <label for="tourSelect">Select a tour category to view available options:</label>
                 <select class="form-control" id="tourSelect" name="tourSelect">
                     <option value="Museum Tours">Museum Tours</option>
@@ -39,6 +61,7 @@
             </div>
             <div>
                 <input class="btn btn-info my-3" type="button" id="showBtn" name="showBtn" value="Show Tours">
+                <input class="btn btn-info my-3" type="button" id="resetBtn" name="resetBtn" value="Clear all">
             </div>
         </form>
         <table id="tours" class="table border">

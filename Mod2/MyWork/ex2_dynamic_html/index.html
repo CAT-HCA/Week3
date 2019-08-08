@@ -14,7 +14,7 @@
     <link rel="stylesheet" type="text/css" href="css/site.css">
 
 
-    <title>Images</title>
+    <title>TOURS GALORE!</title>
 </head>
 
 <body>
@@ -22,34 +22,20 @@
 
     <nav class="navbar navbar-dark navbar-expand-lg p-3 px-md-4 bg-info border-bottom shadow-sm">
         <span class="navbar-brand mb-0 h1">
-            <a class="text-white navHome" href="#">Your Images</a></span>
+            <a class="text-white navHome" href="#">TOURS GALORE!</a></span>
     </nav>
     <!--END NAV BAR-->
 
     <main class="container mt-3">
-        <form class="container">
-            <div class="form-group">
-                <label for="imageSelect">Select an Image to add to your gallery</label>
-                <select class="form-control" id="imageSelect" name="imageSelect">
-                </select>
-            </div>
-            <div>
-                <input class="btn btn-info my-3" type="button" id="addImgBtn" name="addImgBtn" value="Add image">
-                <input class="btn btn-info my-3" type="reset" id="resetBtn" name="resetBtn" value="Clear all images">
-            </div>
-        </form>
-        <div id="imageDiv">
-            <table id="tours">
-                <tr>
-                  <th>Title</th>
-                  <th>Price</th>
-                </tr>
-                <tr>
-                </tr>
-                </table>
-                
-        </div>
-
+        <table id="tours" class="table border">
+            <thead class="thead-dark">
+            <tr>
+                <th >Category</th>
+                <th>Title</th>
+                <th>Price</th>
+            </tr>
+            </thead>
+        </table>
     </main>
     <!-- FOOTER -->
     <footer class="row footer border-top border-info">
@@ -72,7 +58,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-    <script src="scripts/inserting_elements.js"></script>
+    <script src="scripts/dynamicHtml.js"></script>
 </body>
 
 </html>

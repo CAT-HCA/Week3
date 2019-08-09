@@ -17,37 +17,55 @@ window.onload = function() {
 	let showBtn = document.getElementById('showBtn');
 	let resetBtn = document.getElementById('resetBtn');
 	let tourSelect = document.getElementById('tourSelect');
-	let sortOptions = document.getElementById('sortOptions');
 	let tableBody = document.getElementById('tableBody');
 	let categoryField = document.getElementById('sortByCat');
 	let priceField = document.getElementById('sortByPrice');
 	let priceSortDiv = document.getElementById('priceSortDiv');
 	let catSortDiv = document.getElementById('catSortDiv');
+	let minPriceField = document.getElementById('inputMinPrice');
+	let maxPriceField = document.getElementById('inputMaxPrice');
+
 	let len = tours.length;
 
-	sortOptions.onchange = function() {
-		if (categoryField.checked) {
-			priceSortDiv.style.display = 'none';
-			catSortDiv.style.display = 'block';
-		} else {
-			catSortDiv.style.display = 'none';
-			priceSortDiv.style.display = 'block';
-		}
+	categoryField.onclick = function() {
+		priceSortDiv.style.display = 'none';
+		catSortDiv.style.display = 'block';
 	};
+	priceField.onclick = function() {
+		catSortDiv.style.display = 'none';
+		priceSortDiv.style.display = 'block';
+	};
+
 	showBtn.onclick = function() {
 		while (tableBody.childNodes.length) {
 			tableBody.removeChild(tableBody.childNodes[0]);
 		}
-
-		for (let i = 0; i < len; i++) {
-			if (tourSelect.value == tours[i].category) {
-				let row = tableBody.insertRow(tableBody.rows.length);
-				let cell1 = row.insertCell(0);
-				cell1.innerHTML = tours[i].category;
-				let cell2 = row.insertCell(1);
-				cell2.innerHTML = tours[i].title;
-				let cell3 = row.insertCell(2);
-				cell3.innerHTML = '$' + tours[i].price + '.00';
+		if (categoryField.checked) {
+			for (let i = 0; i < len; i++) {
+				if (tourSelect.value == tours[i].category) {
+					let row = tableBody.insertRow(tableBody.rows.length);
+					let cell1 = row.insertCell(0);
+					cell1.innerHTML = tours[i].category;
+					let cell2 = row.insertCell(1);
+					cell2.innerHTML = tours[i].title;
+					let cell3 = row.insertCell(2);
+					cell3.innerHTML = '$' + tours[i].price + '.00';
+				}
+			}
+		} else if (priceField.checked) {
+			for (let i = 0; i < len; i++) {
+				if (
+					parseFloat(minPriceField.value) <= tours[i].price &&
+					tours[i].price <= parseFloat(maxPriceField.value)
+				) {
+					let row = tableBody.insertRow(tableBody.rows.length);
+					let cell1 = row.insertCell(0);
+					cell1.innerHTML = tours[i].category;
+					let cell2 = row.insertCell(1);
+					cell2.innerHTML = tours[i].title;
+					let cell3 = row.insertCell(2);
+					cell3.innerHTML = '$' + tours[i].price + '.00';
+				}
 			}
 		}
 	};
@@ -55,6 +73,8 @@ window.onload = function() {
 	resetBtn.onclick = function() {
 		while (tableBody.childNodes.length) {
 			tableBody.removeChild(tableBody.childNodes[0]);
+			minPriceField.value = '';
+			maxPriceField.value = '';
 		}
 	};
 };

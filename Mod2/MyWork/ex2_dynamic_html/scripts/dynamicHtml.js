@@ -43,13 +43,7 @@ window.onload = function() {
 		if (categoryField.checked) {
 			for (let i = 0; i < len; i++) {
 				if (tourSelect.value == tours[i].category) {
-					let row = tableBody.insertRow(tableBody.rows.length);
-					let cell1 = row.insertCell(0);
-					cell1.innerHTML = tours[i].category;
-					let cell2 = row.insertCell(1);
-					cell2.innerHTML = tours[i].title;
-					let cell3 = row.insertCell(2);
-					cell3.innerHTML = '$' + tours[i].price + '.00';
+					insertRowInTable(tableBody, tours[i].category, tours[i].title, tours[i].price);
 				}
 			}
 		} else if (priceField.checked) {
@@ -58,13 +52,7 @@ window.onload = function() {
 					parseFloat(minPriceField.value) <= tours[i].price &&
 					tours[i].price <= parseFloat(maxPriceField.value)
 				) {
-					let row = tableBody.insertRow(tableBody.rows.length);
-					let cell1 = row.insertCell(0);
-					cell1.innerHTML = tours[i].category;
-					let cell2 = row.insertCell(1);
-					cell2.innerHTML = tours[i].title;
-					let cell3 = row.insertCell(2);
-					cell3.innerHTML = '$' + tours[i].price + '.00';
+					insertRowInTable(tableBody, tours[i].category, tours[i].title, tours[i].price);
 				}
 			}
 		}
@@ -78,3 +66,13 @@ window.onload = function() {
 		}
 	};
 };
+
+function insertRowInTable(tableBody, category, title, price) {
+	let row = tableBody.insertRow(tableBody.rows.length);
+	let cell1 = row.insertCell(0);
+	cell1.innerHTML = category;
+	let cell2 = row.insertCell(1);
+	cell2.innerHTML = title;
+	let cell3 = row.insertCell(2);
+	cell3.innerHTML = '$' + price + '.00';
+}
